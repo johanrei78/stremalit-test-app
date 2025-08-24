@@ -1,15 +1,19 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Aug 22 14:20:25 2025
-
-@author: johvik
-"""
-
-import matplotlib.pyplot as plt
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import matplotlib
+matplotlib.use("Agg")  # trygg backend på Streamlit Cloud
+import matplotlib.pyplot as plt
+from PIL import Image
 
 st.title("📊 Resultater fra simulering")
+
+# Sjekk at nødvendige session_state-variabler finnes
+if "mor_img" not in st.session_state or \
+   "far_img" not in st.session_state or \
+   "resultater" not in st.session_state:
+    
+    st.warning("Du må starte simulering fra Startside først!")
+    st.stop()  # stopper rendering her
 
 # Tilbakeknapp
 if st.button("🔙 Tilbake til start"):
@@ -32,7 +36,7 @@ with col2:
     fig, ax = plt.subplots(figsize=(4, 3))
     ax.bar(st.session_state.resultater.keys(),
            st.session_state.resultater.values(),
-           color=["red", "white", "red", "white"],edgecolor="black")
+           color=["red", "white", "red", "white"], edgecolor="black")
     ax.set_ylabel("Antall avkom")
     ax.set_title("Fenotypefordeling")
     st.pyplot(fig)
