@@ -1,5 +1,5 @@
 streamlit==1.48.1
-matplotlib
+matplotlib>=3.7
 pandas
 pillow
 numpy
