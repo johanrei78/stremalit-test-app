@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Aug 22 14:20:08 2025
-
-@author: johvik
-"""
 # streamlit_page: name="Startside", icon="🏠"
 
 import os
@@ -11,7 +5,13 @@ import streamlit as st
 from PIL import Image
 from genetikk import generer_mor, generer_far, simuler_avkom
 
-
+# --- Initialiser session_state variabler ---
+if "mor_img" not in st.session_state:
+    st.session_state.mor_img = None
+if "far_img" not in st.session_state:
+    st.session_state.far_img = None
+if "resultater" not in st.session_state:
+    st.session_state.resultater = {}
 
 # Filsti
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
