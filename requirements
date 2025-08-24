@@ -1,5 +1,13 @@
-streamlit==1.48.1
+# Kjernesystem
+streamlit>=1.30
+
+# Databehandling
+pandas>=2.0
+numpy>=1.26
+
+# Visualisering
 matplotlib>=3.7
-pandas
+
+# Bilder
 pillow
-numpy
+
